@@ -109,7 +109,10 @@ class MCPServer:
             tool_schema = self._tools[tool_name]
 
             def tool_method(**kwargs: Any) -> Any:
-                result = self._runner.run(self._client.call_tool(tool_name, kwargs))
+                # Filter out None values - don't send them in MCP request
+                # (Optional params with None shouldn't be included)
+                filtered_kwargs = {k: v for k, v in kwargs.items() if v is not None}
+                result = self._runner.run(self._client.call_tool(tool_name, filtered_kwargs))
                 return self._unwrap_result(result)
 
             tool_method.__name__ = name
