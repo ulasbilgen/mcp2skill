@@ -5,7 +5,12 @@ All notable changes to mcp2py will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.5.0] - 2025-01-XX
+## [0.5.1] - 2025-01-11
+
+### Fixed
+- **None parameter handling**: Optional parameters with `None` values are now omitted from MCP requests instead of being sent as `null`. This fixes validation errors with servers that expect optional number parameters to be absent rather than null (e.g., filesystem server's `read_text_file` with `head` and `tail` parameters).
+
+## [0.5.0] - 2025-01-10
 
 ### Added
 - **HTTP/SSE Transport**: Connect to remote MCP servers via HTTP with Server-Sent Events
