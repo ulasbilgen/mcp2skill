@@ -8,3 +8,12 @@ wheels/
 
 # Virtual environments
 .venv
+venv
+
+# IDE and config folders
+.kiro/
+.vscode/
+.claude/
+
+# Old examples
+examples/
