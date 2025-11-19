@@ -13,7 +13,8 @@ venv
 # IDE and config folders
 .kiro/
 .vscode/
-.claude/
+.claude/*
+!.claude/commands/
 
 # Old examples
 examples/
