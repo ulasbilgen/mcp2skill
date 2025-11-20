@@ -486,7 +486,11 @@ Issues and pull requests welcome!
 
 ## Changelog
 
-### v0.1.8 (Current)
+### v0.1.9 (Current)
+
+- Documentation update (removed slash command references)
+
+### v0.1.8
 - Initial PyPI release
 - Core skill generation from mcp2rest servers
 - CLI commands: servers, generate, tools
