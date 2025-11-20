@@ -2,11 +2,11 @@
 name = "mcp2skill"
 dynamic = ["version"]
 description = "Generate Claude Code skills from mcp2rest servers"
-readme = "README.md"
+readme = {file = "README.md", content-type = "text/markdown"}
 requires-python = ">=3.11"
 license = {text = "MIT"}
 authors = [
-    { name = "Ulas Bilgen", email = "ulasbilgen@gmail.com" }
+    { name = "Ulas Bilgenoglu", email = "ulasbilgen@gmail.com" }
 ]
 keywords = ["mcp", "model-context-protocol", "ai", "llm", "tools", "claude-code", "skills"]
 classifiers = [

@@ -1,13 +1,13 @@
-"""Custom exceptions for mcp2py.
+"""Custom exceptions for mcp2skill.
 
 Provides clear, actionable error messages for common failure modes.
 """
 
 
 class MCPError(Exception):
-    """Base exception for all mcp2py errors.
+    """Base exception for all mcp2skill errors.
 
-    All mcp2py exceptions inherit from this base class.
+    All mcp2skill exceptions inherit from this base class.
     """
     pass
 
@@ -22,9 +22,10 @@ class MCPConnectionError(MCPError):
     - Server process terminates unexpectedly
 
     Example:
-        >>> from mcp2py import load
+        >>> from mcp2skill import SkillGenerator
         >>> try:
-        ...     server = load("nonexistent-command")
+        ...     gen = SkillGenerator("http://invalid-endpoint:9999")
+        ...     servers = gen.list_servers()
         ... except MCPConnectionError as e:
         ...     print(f"Connection failed: {e}")
     """
@@ -42,12 +43,9 @@ class MCPToolError(MCPError):
     The error message includes details from the server about what went wrong.
 
     Example:
-        >>> from mcp2py import load
-        >>> server = load("npx my-server")
-        >>> try:
-        ...     result = server.my_tool(invalid_arg="value")
-        ... except MCPToolError as e:
-        ...     print(f"Tool failed: {e}")
+        >>> # Note: Currently unused in mcp2skill (reserved for future use)
+        >>> # Originally from mcp2py for tool execution errors
+        >>> pass
     """
     pass
 
@@ -61,12 +59,9 @@ class MCPResourceError(MCPError):
     - Resource fetch fails
 
     Example:
-        >>> from mcp2py import load
-        >>> server = load("npx my-server")
-        >>> try:
-        ...     data = server.nonexistent_resource
-        ... except MCPResourceError as e:
-        ...     print(f"Resource not found: {e}")
+        >>> # Note: Currently unused in mcp2skill (reserved for future use)
+        >>> # Originally from mcp2py for resource access errors
+        >>> pass
     """
     pass
 
@@ -80,12 +75,9 @@ class MCPPromptError(MCPError):
     - Prompt generation fails
 
     Example:
-        >>> from mcp2py import load
-        >>> server = load("npx my-server")
-        >>> try:
-        ...     prompt = server.my_prompt(invalid_arg="value")
-        ... except MCPPromptError as e:
-        ...     print(f"Prompt failed: {e}")
+        >>> # Note: Currently unused in mcp2skill (reserved for future use)
+        >>> # Originally from mcp2py for prompt execution errors
+        >>> pass
     """
     pass
 
@@ -99,12 +91,9 @@ class MCPValidationError(MCPError):
     - Argument values are out of range
 
     Example:
-        >>> from mcp2py import load
-        >>> server = load("npx my-server")
-        >>> try:
-        ...     server.my_tool()  # Missing required argument
-        ... except MCPValidationError as e:
-        ...     print(f"Validation failed: {e}")
+        >>> # Note: Currently unused in mcp2skill (reserved for future use)
+        >>> # Originally from mcp2py for argument validation errors
+        >>> pass
     """
     pass
 
@@ -118,12 +107,9 @@ class MCPSamplingError(MCPError):
     - No API keys available for sampling
 
     Example:
-        >>> from mcp2py import load
-        >>> server = load("npx my-server", allow_sampling=False)
-        >>> try:
-        ...     result = server.tool_that_needs_llm()
-        ... except MCPSamplingError as e:
-        ...     print(f"Sampling failed: {e}")
+        >>> # Note: Currently unused in mcp2skill (reserved for future use)
+        >>> # Originally from mcp2py for LLM sampling errors
+        >>> pass
     """
     pass
 
@@ -137,12 +123,9 @@ class MCPElicitationError(MCPError):
     - Input prompt fails
 
     Example:
-        >>> from mcp2py import load
-        >>> server = load("npx my-server", allow_elicitation=False)
-        >>> try:
-        ...     result = server.tool_that_needs_input()
-        ... except MCPElicitationError as e:
-        ...     print(f"Elicitation failed: {e}")
+        >>> # Note: Currently unused in mcp2skill (reserved for future use)
+        >>> # Originally from mcp2py for user input elicitation errors
+        >>> pass
     """
     pass
 
@@ -156,10 +139,8 @@ class MCPConfigError(MCPError):
     - Configuration file has syntax errors
 
     Example:
-        >>> from mcp2py import register
-        >>> try:
-        ...     register(invalid_config=123)  # Invalid type
-        ... except MCPConfigError as e:
-        ...     print(f"Config error: {e}")
+        >>> # Note: Currently unused in mcp2skill (reserved for future use)
+        >>> # Originally from mcp2py for configuration errors
+        >>> pass
     """
     pass

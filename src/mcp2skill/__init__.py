@@ -16,7 +16,7 @@ CLI Usage:
     $ mcp2skill generate --all
 """
 
-__version__ = "0.5.0"
+__version__ = "0.1.8"
 
 # Core generator
 from mcp2skill.generator import SkillGenerator

@@ -1,7 +1,7 @@
 ---
 description: Add a new MCP server to mcp2rest
 argument-hint: <server-name> [package-or-url]
-allowed-tools: Bash(mcp2rest:*), AskUserQuestion
+allowed-tools: Bash(mcp2rest:*), Bash(mcp2skill:*), AskUserQuestion
 ---
 
 Add a new MCP server to mcp2rest with the name "$1".
@@ -55,7 +55,7 @@ Run the appropriate command.
 
 ## Step 4: Verify server loaded
 
-After adding, check server status: !`mcp2skill servers`
+After adding, use Bash to check server status: `mcp2skill servers`
 
 Look for "$1" in the output:
 - **If status = "connected":** Success! Show tool count

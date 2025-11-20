@@ -1,6 +1,6 @@
 ---
 description: Setup mcp2rest and mcp2skill for first-time use
-allowed-tools: Bash(which:*), Bash(npm:*), Bash(pip:*), Bash(mcp2rest:*), Bash(curl:*)
+allowed-tools: Bash(which:*), Bash(npm:*), Bash(pip:*), Bash(mcp2rest:*), Bash(mcp2skill:*), Bash(curl:*)
 ---
 
 Guide the user through initial setup of mcp2skill and mcp2rest.

@@ -4,11 +4,12 @@ import sys
 import click
 from pathlib import Path
 
+from mcp2skill import __version__
 from mcp2skill.generator import SkillGenerator
 
 
 @click.group()
-@click.version_option(version="0.5.0", prog_name="mcp2skill")
+@click.version_option(version=__version__, prog_name="mcp2skill")
 def cli():
     """Generate Claude Code skills from mcp2rest servers.
 

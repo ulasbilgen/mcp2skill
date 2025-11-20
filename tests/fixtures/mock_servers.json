@@ -1,0 +1,31 @@
+[
+  {
+    "name": "chrome-devtools",
+    "status": "connected",
+    "toolCount": 15,
+    "transport": "stdio",
+    "package": "@modelcontextprotocol/server-chrome"
+  },
+  {
+    "name": "filesystem",
+    "status": "connected",
+    "toolCount": 8,
+    "transport": "stdio",
+    "package": "@modelcontextprotocol/server-filesystem",
+    "url": null
+  },
+  {
+    "name": "slack-api",
+    "status": "connected",
+    "toolCount": 12,
+    "transport": "http",
+    "url": "https://slack.com/api"
+  },
+  {
+    "name": "disconnected-server",
+    "status": "disconnected",
+    "toolCount": 0,
+    "transport": "stdio",
+    "package": "test-server"
+  }
+]

@@ -245,6 +245,7 @@ def create_mcp_client_script(mcp2rest_url: str) -> str:
 
 import json
 import os
+import sys
 import requests
 from typing import Any
 
@@ -321,9 +322,6 @@ def call_tool(server: str, tool: str, arguments: dict[str, Any]) -> str:
     except Exception as e:
         print(f"Error: {{type(e).__name__}}: {{e}}", file=sys.stderr)
         sys.exit(1)
-
-
-import sys  # noqa: E402
 '''
 
 

@@ -1,32 +1,32 @@
 ---
 description: Update existing skill with new tools or improved documentation
 argument-hint: <server-name>
-allowed-tools: Bash(mcp2skill:*), Bash(ls:*), Read, Write, AskUserQuestion
+allowed-tools: Bash(mcp2skill:*), Bash(ls:*), Bash(cat:*), Bash(grep:*), Bash(wc:*), Bash(cp:*), Bash(python:*), Read, Write, AskUserQuestion
 ---
 
 Update the Claude Code skill for MCP server "$1" with latest tools and improved documentation.
 
 ## Step 1: Verify skill exists
 
-Check if skill exists: !`ls ~/.claude/skills/mcp-$1/ 2>/dev/null || echo "Skill not found"`
+Use Glob to check if skill exists: `~/.claude/skills/mcp-$1/`
 
 **If skill doesn't exist:**
-- Inform user: "Skill for '$1' not found. Use `/m2s-generate $1` to create it first."
+- Inform user: "Skill for '$1' not found. Use `/m2s:generate $1` to create it first."
 - Stop here
 
 **If skill exists:**
-- Show current structure: !`ls -R ~/.claude/skills/mcp-$1/`
+- Use Glob to show current structure: `~/.claude/skills/mcp-$1/**/*`
 - Continue to Step 2
 
 ## Step 2: Get current tool list from skill
 
-List current scripts (these are the old tools): !`ls ~/.claude/skills/mcp-$1/scripts/*.py | grep -v mcp_client.py | wc -l`
+Use Glob to list current scripts (these are the old tools): `~/.claude/skills/mcp-$1/scripts/*.py` (excluding mcp_client.py)
 
 Count current tools and show them.
 
 ## Step 3: Get latest tools from mcp2rest
 
-Get current tools from server: !`mcp2skill tools $1`
+Use Bash to get current tools from server: `mcp2skill tools $1`
 
 Parse and count the tools available now.
 
@@ -66,14 +66,14 @@ Present options:
 
 ### Option 1: Regenerate scripts only
 
-1. Backup current scripts: !`cp -r ~/.claude/skills/mcp-$1/scripts ~/.claude/skills/mcp-$1/scripts.backup`
-2. Regenerate: !`mcp2skill generate $1`
-3. Verify: !`ls ~/.claude/skills/mcp-$1/scripts/`
+1. Use Bash to backup current scripts: `cp -r ~/.claude/skills/mcp-$1/scripts ~/.claude/skills/mcp-$1/scripts.backup`
+2. Use Bash to regenerate: `mcp2skill generate $1`
+3. Use Glob to verify: `~/.claude/skills/mcp-$1/scripts/*.py`
 4. Inform: "Scripts updated. SKILL.md unchanged. Backup at scripts.backup/"
 
 ### Option 2: Improve SKILL.md only
 
-1. Read current SKILL.md: !`cat ~/.claude/skills/mcp-$1/SKILL.md`
+1. Use Read tool for current SKILL.md: `~/.claude/skills/mcp-$1/SKILL.md`
 2. Analyze against @skill-authoring-guide.md best practices:
    - Check line count (should be <500)
    - Verify concrete examples exist
@@ -91,7 +91,7 @@ Present options:
 
 ### Option 3: Full regeneration
 
-1. Check if user had customizations: !`grep -i "custom\|note:" ~/.claude/skills/mcp-$1/SKILL.md || echo "No custom notes found"`
+1. Use Grep tool to check if user had customizations: search for "custom|note:" in `~/.claude/skills/mcp-$1/SKILL.md`
 2. If customizations found:
    - Extract and save them
    - Offer to include in new version
@@ -104,11 +104,11 @@ After any update, validate:
 
 **For script updates:**
 - Check script count matches tool count
-- Verify all scripts are executable: !`ls -l ~/.claude/skills/mcp-$1/scripts/*.py`
-- Test one script: !`python ~/.claude/skills/mcp-$1/scripts/{first-tool}.py --help`
+- Use Glob to verify all scripts: `~/.claude/skills/mcp-$1/scripts/*.py`
+- Use Bash to test one script: `python ~/.claude/skills/mcp-$1/scripts/{first-tool}.py --help`
 
 **For SKILL.md updates:**
-- Check line count: !`wc -l ~/.claude/skills/mcp-$1/SKILL.md`
+- Use Read tool to check line count: `~/.claude/skills/mcp-$1/SKILL.md`
 - Verify YAML frontmatter is valid
 - Check all file references exist: @workflows/, @reference/
 

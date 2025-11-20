@@ -7,7 +7,7 @@ Display all MCP servers available in mcp2rest and identify which need skills gen
 
 ## Step 1: Get server list
 
-Retrieve servers from mcp2rest: !`mcp2skill servers`
+Use Bash to retrieve servers from mcp2rest: `mcp2skill servers`
 
 Parse and display the results in a clear format showing:
 - Server name
@@ -17,7 +17,7 @@ Parse and display the results in a clear format showing:
 
 ## Step 2: Check for existing skills
 
-Check which servers already have skills generated: !`ls -1 ~/.claude/skills/ 2>/dev/null | grep "^mcp-" || echo "No skills found"`
+Use Glob to check which servers already have skills generated: `~/.claude/skills/mcp-*/`
 
 ## Step 3: Compare and suggest
 
