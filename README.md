@@ -144,113 +144,6 @@ python click.py --uid button_abc123
 
 ---
 
-## Interactive Mode (Slash Commands)
-
-**NEW:** Use Claude Code slash commands for an interactive, LLM-assisted skill generation workflow.
-
-### Available Commands
-
-mcp2skill includes 5 slash commands for interactive use within Claude Code:
-
-| Command | Description |
-|---------|-------------|
-| `/m2s-init` | First-time setup wizard (installs mcp2rest + mcp2skill) |
-| `/m2s-list` | List available MCP servers and their skill status |
-| `/m2s-add <server> [package]` | Add new server to mcp2rest |
-| `/m2s-generate <server>` | **Interactive skill generation with Claude** |
-| `/m2s-update <server>` | Update existing skill with latest tools/docs |
-
-### Interactive Skill Generation
-
-The `/m2s-generate` command provides an **LLM-enhanced** workflow where Claude:
-
-1. **Analyzes your MCP server** - Reads tool descriptions and detects domain
-2. **Suggests intelligent groupings** - For servers with >10 tools
-3. **Generates enhanced SKILL.md** - Following [best practices](skill-authoring-guide.md)
-4. **Creates reference files** - Progressive disclosure for complex skills
-5. **Iterates with your feedback** - Refine and improve before finalizing
-
-### Example: Interactive Generation
-
-```
-You: /m2s-generate chrome-devtools
-
-Claude: I found 26 tools in chrome-devtools. Let me analyze them...
-
-        I suggest organizing into 4 groups:
-        1. Page Management (6 tools) - new_page, navigate, close_page...
-        2. Element Interaction (8 tools) - click, fill, hover...
-        3. Inspection & Debug (7 tools) - take_snapshot, screenshot...
-        4. Advanced (5 tools) - evaluate_script, inject_script...
-
-        Does this structure work for you?
-
-You: Yes, but split Element Interaction into Basic and Forms
-
-Claude: Updated structure:
-        2a. Basic Interaction (4 tools) - click, hover, drag...
-        2b. Form Automation (4 tools) - fill, submit_form, upload...
-
-        Generating skill with:
-        - SKILL.md (overview + quick start)
-        - workflows/automation.md (form workflows)
-        - workflows/testing.md (inspection workflows)
-        - reference/all-tools.md (complete listing)
-
-        [Shows preview of SKILL.md...]
-
-        ✓ Generated skill at ~/.claude/skills/mcp-chrome-devtools/
-```
-
-### Benefits of Interactive Mode
-
-**vs. CLI mode:**
-- 🤖 **LLM-enhanced** - Claude analyzes tools and generates better docs
-- 📊 **Smart grouping** - Automatic tool organization for large skill sets
-- 📝 **Best practices** - Follows [skill-authoring-guide.md](skill-authoring-guide.md) automatically
-- 🔄 **Iterative** - Review and refine before finalizing
-- ✅ **Progressive disclosure** - Proper file structure for complex skills
-
-**CLI mode still available** for automation:
-```bash
-mcp2skill generate chrome-devtools  # Non-interactive, template-based
-```
-
-### First-Time Setup with /m2s-init
-
-```
-You: /m2s-init
-
-Claude: Let me help you set up mcp2skill...
-
-        Checking mcp2rest... not installed
-        → Installing: npm install -g mcp2rest
-        ✓ Installed
-
-        Checking mcp2skill... not installed
-        → Installing: pip install mcp2skill
-        ✓ Installed
-
-        Starting mcp2rest service...
-        ✓ Running on http://localhost:3000
-
-        No servers found. Would you like to add one?
-
-        Popular options:
-        - chrome-devtools-mcp@latest (browser automation)
-        - @modelcontextprotocol/server-filesystem (file ops)
-
-You: Add chrome-devtools
-
-Claude: Adding chrome-devtools...
-        [Runs: mcp2rest add chrome-devtools chrome-devtools-mcp@latest]
-        ✓ Connected with 26 tools
-
-        Ready to generate skill? Use: /m2s-generate chrome-devtools
-```
-
----
-
 ## Complete Example: Web Form Automation
 
 **Scenario**: Fill out a contact form on example.com
@@ -593,18 +486,10 @@ Issues and pull requests welcome!
 
 ## Changelog
 
-### v0.6.0 (Current)
-- **NEW: Interactive mode** with 5 Claude Code slash commands
-- LLM-assisted skill generation with `/m2s-generate`
-- Smart tool grouping for servers with >10 tools
-- Progressive disclosure (SKILL.md + reference files)
-- Setup wizard (`/m2s-init`) for first-time users
-- Skill authoring best practices guide
-- CLI mode still available for automation
-
-### v0.5.0
-- Complete rewrite as skill generator
-- Removed subprocess spawning, daemon features
-- Generate Claude Code skills from mcp2rest
+### v0.1.8 (Current)
+- Initial PyPI release
+- Core skill generation from mcp2rest servers
+- CLI commands: servers, generate, tools
 - Python scripts with argparse wrappers
 - Auto-discovery in ~/.claude/skills/
+- Comprehensive test suite with 94% coverage
