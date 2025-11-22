@@ -486,7 +486,13 @@ Issues and pull requests welcome!
 
 ## Changelog
 
-### v0.1.10 (Current)
+### v0.1.11 (Current)
+
+- Move slash commands to separate project: [mcp2skill-commands](https://github.com/ulasbilgen/mcp2skill-commands)
+- This package now focuses purely on skill generation (CLI tool)
+- For interactive Claude Code commands, use mcp2skill-commands
+
+### v0.1.10
 
 - Change default port from 3000 to 28888 to match mcp2rest v0.6.0+
 
