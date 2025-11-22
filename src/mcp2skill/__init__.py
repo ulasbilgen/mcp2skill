@@ -6,7 +6,7 @@ Claude Code skills.
 
 Example:
     >>> from mcp2skill import SkillGenerator
-    >>> gen = SkillGenerator("http://localhost:3000")
+    >>> gen = SkillGenerator("http://localhost:28888")
     >>> skill_dir = gen.generate_skill("chrome-devtools")
     >>> print(f"Skill generated at: {skill_dir}")
 
@@ -16,7 +16,7 @@ CLI Usage:
     $ mcp2skill generate --all
 """
 
-__version__ = "0.1.9"
+__version__ = "0.1.10"
 
 # Core generator
 from mcp2skill.generator import SkillGenerator

@@ -31,18 +31,18 @@ Check if mcp2skill is installed: !`pip show mcp2skill`
 
 ## Step 3: Start mcp2rest service
 
-Check if mcp2rest is already running: !`curl -s http://localhost:3000/health 2>/dev/null || echo "not running"`
+Check if mcp2rest is already running: !`curl -s http://localhost:28888/health 2>/dev/null || echo "not running"`
 
 **If not running:**
 - Explain the options:
   1. Run temporarily: `mcp2rest start` (stops when terminal closes)
   2. Install as system service: `mcp2rest service install && mcp2rest service start` (recommended)
 - Recommend option 2 for persistent background service
-- After starting, verify: !`curl http://localhost:3000/health`
+- After starting, verify: !`curl http://localhost:28888/health`
 
 **If already running:**
 - Confirm it's working properly
-- Check status: !`curl http://localhost:3000/health`
+- Check status: !`curl http://localhost:28888/health`
 
 ## Step 4: Check for existing servers
 

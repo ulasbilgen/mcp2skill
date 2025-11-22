@@ -5,6 +5,7 @@ from click.testing import CliRunner
 from unittest.mock import patch, Mock, MagicMock
 from pathlib import Path
 from mcp2skill.cli import cli
+from mcp2skill import __version__
 
 
 class TestCliVersion:
@@ -15,7 +16,7 @@ class TestCliVersion:
         runner = CliRunner()
         result = runner.invoke(cli, ['--version'])
         assert result.exit_code == 0
-        assert '0.5.0' in result.output
+        assert __version__ in result.output
 
 
 class TestServersCommand:

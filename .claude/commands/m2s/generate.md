@@ -112,7 +112,7 @@ description: [Write clear, specific description mentioning key capabilities and 
 {1-2 paragraph overview of what this skill does}
 
 ## Prerequisites
-- mcp2rest running on http://localhost:3000
+- mcp2rest running on http://localhost:28888
 - {server-name} server loaded
 - {any server-specific requirements}
 

@@ -11,7 +11,7 @@ from typing import Any
 @pytest.fixture
 def mock_mcp2rest_url():
     """Mock mcp2rest endpoint URL."""
-    return "http://localhost:3000"
+    return "http://localhost:28888"
 
 
 @pytest.fixture

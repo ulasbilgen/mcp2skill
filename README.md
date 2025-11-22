@@ -44,7 +44,7 @@ npm install -g mcp2rest
 mcp2rest add chrome-devtools chrome-devtools-mcp@latest
 mcp2rest add figma-desktop --url http://127.0.0.1:3845/mcp
 
-# Start service (runs on localhost:3000)
+# Start service (runs on localhost:28888)
 mcp2rest start
 
 # Or run as system service
@@ -70,7 +70,7 @@ mcp2skill servers
 
 Output:
 ```
-Available servers in mcp2rest (http://localhost:3000):
+Available servers in mcp2rest (http://localhost:28888):
 
   ✓ chrome-devtools
     Status: connected
@@ -268,10 +268,10 @@ Shows all 26 tools with descriptions and parameters.
 
 ```bash
 # Via command line
-mcp2skill servers --endpoint http://192.168.1.100:3000
+mcp2skill servers --endpoint http://192.168.1.100:28888
 
 # Via environment variable
-export MCP_REST_URL="http://192.168.1.100:3000"
+export MCP_REST_URL="http://192.168.1.100:28888"
 mcp2skill generate chrome-devtools
 ```
 
@@ -328,7 +328,7 @@ git clone https://github.com/team/my-mcp-skills.git ~/.claude/skills/
 ### Options
 
 - `--output`, `-o`: Output directory (default: `~/.claude/skills/`)
-- `--endpoint`: mcp2rest URL (default: `http://localhost:3000`)
+- `--endpoint`: mcp2rest URL (default: `http://localhost:28888`)
 - `--help`: Show help message
 - `--version`: Show version
 
@@ -400,13 +400,13 @@ python take_screenshot.py --format png > dashboard.png
 
 ```bash
 # Check mcp2rest is running
-curl http://localhost:3000/health
+curl http://localhost:28888/health
 
 # If not running, start it
 mcp2rest start
 
 # Check what servers are loaded
-curl http://localhost:3000/servers
+curl http://localhost:28888/servers
 ```
 
 ### "Server not found"
@@ -429,7 +429,7 @@ mcp2rest service restart
 python scripts/click.py --help
 
 # Test mcp2rest API directly
-curl -X POST http://localhost:3000/call \
+curl -X POST http://localhost:28888/call \
   -H "Content-Type: application/json" \
   -d '{"server":"chrome-devtools","tool":"list_pages","arguments":{}}'
 ```
@@ -486,7 +486,11 @@ Issues and pull requests welcome!
 
 ## Changelog
 
-### v0.1.9 (Current)
+### v0.1.10 (Current)
+
+- Change default port from 3000 to 28888 to match mcp2rest v0.6.0+
+
+### v0.1.9
 
 - Documentation update (removed slash command references)
 

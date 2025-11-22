@@ -32,7 +32,7 @@ class TestEndToEndSkillGeneration:
 
         mock_get.side_effect = get_side_effect
 
-        gen = SkillGenerator("http://localhost:3000")
+        gen = SkillGenerator("http://localhost:28888")
         skill_dir = gen.generate_skill("chrome-devtools", temp_skill_dir)
 
         # Verify directory structure

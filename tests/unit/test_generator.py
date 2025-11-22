@@ -13,7 +13,7 @@ class TestSkillGeneratorInit:
     def test_init_default_url(self):
         """Test initialization with default URL."""
         gen = SkillGenerator()
-        assert gen.base_url == "http://localhost:3000"
+        assert gen.base_url == "http://localhost:28888"
 
     def test_init_custom_url(self):
         """Test initialization with custom URL."""
@@ -22,13 +22,13 @@ class TestSkillGeneratorInit:
 
     def test_init_strips_trailing_slash(self):
         """Test that trailing slash is removed from URL."""
-        gen = SkillGenerator("http://localhost:3000/")
-        assert gen.base_url == "http://localhost:3000"
+        gen = SkillGenerator("http://localhost:28888/")
+        assert gen.base_url == "http://localhost:28888"
 
     def test_init_multiple_trailing_slashes(self):
         """Test that multiple trailing slashes are removed."""
-        gen = SkillGenerator("http://localhost:3000///")
-        assert gen.base_url == "http://localhost:3000"
+        gen = SkillGenerator("http://localhost:28888///")
+        assert gen.base_url == "http://localhost:28888"
 
 
 class TestListServers:
@@ -49,7 +49,7 @@ class TestListServers:
         assert len(servers) == 3
         assert servers[0]["name"] == "chrome-devtools"
         assert servers[1]["name"] == "filesystem"
-        mock_get.assert_called_once_with("http://localhost:3000/servers", timeout=10)
+        mock_get.assert_called_once_with("http://localhost:28888/servers", timeout=10)
 
     def test_list_servers_empty(self, monkeypatch):
         """Test listing when no servers exist."""
@@ -76,7 +76,7 @@ class TestListServers:
             gen.list_servers()
 
         assert "Cannot connect to mcp2rest" in str(exc_info.value)
-        assert "http://localhost:3000" in str(exc_info.value)
+        assert "http://localhost:28888" in str(exc_info.value)
 
     def test_list_servers_timeout(self, monkeypatch):
         """Test timeout error handling."""

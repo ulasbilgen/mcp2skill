@@ -22,8 +22,8 @@ def cli():
 @cli.command()
 @click.option(
     '--endpoint',
-    default='http://localhost:3000',
-    help='mcp2rest service URL (default: http://localhost:3000)',
+    default='http://localhost:28888',
+    help='mcp2rest service URL (default: http://localhost:28888)',
     show_default=True
 )
 def servers(endpoint):
@@ -92,7 +92,7 @@ def servers(endpoint):
 )
 @click.option(
     '--endpoint',
-    default='http://localhost:3000',
+    default='http://localhost:28888',
     help='mcp2rest service URL',
     show_default=True
 )
@@ -115,7 +115,7 @@ def generate(server_name, all, output, endpoint):
 
       \b
       # Use custom mcp2rest endpoint
-      mcp2skill generate chrome-devtools --endpoint http://192.168.1.100:3000
+      mcp2skill generate chrome-devtools --endpoint http://192.168.1.100:28888
     """
     if not server_name and not all:
         click.echo("Error: Must specify SERVER_NAME or use --all flag", err=True)
@@ -183,7 +183,7 @@ def generate(server_name, all, output, endpoint):
 @click.argument('server_name')
 @click.option(
     '--endpoint',
-    default='http://localhost:3000',
+    default='http://localhost:28888',
     help='mcp2rest service URL',
     show_default=True
 )

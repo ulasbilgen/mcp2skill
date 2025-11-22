@@ -12,11 +12,11 @@ from mcp2skill.schema_utils import generate_argparse_from_schema
 class SkillGenerator:
     """Generator for Claude Code skills from mcp2rest servers."""
 
-    def __init__(self, mcp2rest_url: str = "http://localhost:3000"):
+    def __init__(self, mcp2rest_url: str = "http://localhost:28888"):
         """Initialize skill generator.
 
         Args:
-            mcp2rest_url: Base URL of mcp2rest service (default: http://localhost:3000)
+            mcp2rest_url: Base URL of mcp2rest service (default: http://localhost:28888)
         """
         self.base_url = mcp2rest_url.rstrip('/')
 
